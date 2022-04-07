@@ -1,6 +1,6 @@
 :root{
-  --primary: rgba(255, 255, 0, 0.399);
-  --secondary: darkblue;
+  --primary: black;
+  --secondary: darkgray;
   --tertiary: darkgreen;
   --fontSize: 50px;
   --margin: 15px;

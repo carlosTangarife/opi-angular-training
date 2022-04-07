@@ -16,6 +16,8 @@ import { ThemeService } from './services/theme.service';
 export class AppComponent implements OnInit {
   data$!: Observable<Array<IData>>;
 
+  data3$!: Observable<any>;
+
   @ViewChild("containerImgComponentRef")
   containerImgComponentRef!: ContainerImgComponent;
 
@@ -46,6 +48,8 @@ export class AppComponent implements OnInit {
         }))
       })
     );
+
+    this.data3$ = this.dataService.getData3();
   }
 
   clicked(): void {

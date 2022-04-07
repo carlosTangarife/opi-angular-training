@@ -12,21 +12,21 @@ export class ThemeService {
 
 
     const theme = {
-      primary: 'green',
-      secondary: 'red',
-      tertiary: 'blue',
+      primary: 'black',
+      secondary: 'darkgray',
+      tertiary: 'darkgreen',
       fontSize: '18px',
-      padding: '15px',
-      margin: '16px',
+      padding: '0px',
+      margin: '0px',
     };
 
     const theme2 = {
-      primary: 'red',
-      secondary: 'red',
-      tertiary: 'blue',
+      primary: 'black',
+      secondary: 'darkgray',
+      tertiary: 'darkgreen',
       fontSize: '18px',
-      padding: '15px',
-      margin: '16px',
+      padding: '0px',
+      margin: '0px',
     };
 
 

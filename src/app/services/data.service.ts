@@ -1,5 +1,6 @@
 import { Observable, of } from 'rxjs';
 
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { IData } from '../models/data.model';
@@ -8,6 +9,10 @@ import { IData } from '../models/data.model';
   providedIn: 'root'
 })
 export class DataService{
+  constructor(private readonly _httpClient: HttpClient){
+
+  }
+
   getData(): Observable<Array<IData>>{
 
     return of([
@@ -47,5 +52,9 @@ export class DataService{
         link: 'Call to action'
       }
     ]);
+  }
+
+  getData3(): Observable<any> {
+    return this._httpClient.get<any>('/assets/data.json');
   }
 }

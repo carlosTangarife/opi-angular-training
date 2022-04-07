@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --primary: rgba(255, 255, 0, 0.399);
+  --secondary: darkblue;
+  --tertiary: darkgreen;
+  --fontSize: 50px;
+  --margin: 15px;
+  --padding: 5px;
+}
+
+body {
+  color: var(--primary);
+  background-color: var(--secondary);
+  font-size: var(--fontSize);
+}
+
+body *{
+  margin: var(--margin);
+  padding: var(--padding);
+}

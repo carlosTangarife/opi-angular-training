@@ -6,6 +6,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ContainerImgComponent } from './container-img/container-img.component';
 import { IData } from './models/data.model';
 import { DataService } from './services/data.service';
+import { GreetingStrategyService } from './services/greeting-strategy/greeting-strategy.service';
 import { ThemeService } from './services/theme.service';
 
 @Component({
@@ -21,7 +22,11 @@ export class AppComponent implements OnInit {
   @ViewChild("containerImgComponentRef")
   containerImgComponentRef!: ContainerImgComponent;
 
-  constructor(private readonly dataService: DataService, private readonly themeService: ThemeService) {
+  constructor(
+    private readonly dataService: DataService,
+    private readonly themeService: ThemeService,
+    private readonly _greetingStrategyService: GreetingStrategyService
+    ) {
   }
 
   ngOnInit(): void {
@@ -30,10 +35,10 @@ export class AppComponent implements OnInit {
     //https://www.jasoft.org/Blog/post/como-cambiar-los-valores-de-variables-css-desde-codigo-javascript
     // get configurations color by especific client.
     setTimeout(() => {
-      const {defaul, custome} = this.themeService.getTheme();
+      const { defaul, custome } = this.themeService.getTheme();
       const setVariableCss = ([key, value]: [string, string]): void => document.documentElement.style.setProperty(`--${key}`, value);
 
-      if(!!custome || !!defaul) {
+      if (!!custome || !!defaul) {
         Object.entries(custome || defaul).forEach(setVariableCss);
       }
 
@@ -54,5 +59,9 @@ export class AppComponent implements OnInit {
 
   clicked(): void {
     this.containerImgComponentRef.saludar();
+  }
+
+  sayHey(): void {
+    this._greetingStrategyService.sayHey();
   }
 }

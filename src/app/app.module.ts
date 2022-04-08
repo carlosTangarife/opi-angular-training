@@ -7,6 +7,7 @@ import { ContainerImgComponent } from './container-img/container-img.component';
 import { ContainerItemComponent } from './container-item/container-item.component';
 import { ContainerComponent } from './container/container.component';
 import { TokenService } from './interceptors/token.service';
+import { GREETING_PROVIDER } from './services/greeting-strategy/greeting-provider';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,10 @@ import { TokenService } from './interceptors/token.service';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [{provide: HTTP_INTERCEPTORS, useClass: TokenService, multi: true}],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: TokenService, multi: true},
+    ...GREETING_PROVIDER
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

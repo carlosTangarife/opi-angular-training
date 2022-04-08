@@ -1,6 +1,7 @@
 <main>
   <h1 class="visually-hidden">Features examples</h1>
 
+  <button (click)="sayHey()">saludar</button>
   <ng-container *ngIf="data$ | async as data">
     <app-container>
       <h2 title class="pb-2 border-bottom">💛 Columns with icons 💔</h2>

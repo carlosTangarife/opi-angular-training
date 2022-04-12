@@ -7,6 +7,7 @@ import { ContainerImgComponent } from './container-img/container-img.component';
 import { IData } from './models/data.model';
 import { DataService } from './services/data.service';
 import { GreetingStrategyService } from './services/greeting-strategy/greeting-strategy.service';
+import { GreetingType } from './services/greeting-strategy/greeting-type';
 import { ThemeService } from './services/theme.service';
 
 @Component({
@@ -62,6 +63,11 @@ export class AppComponent implements OnInit {
   }
 
   sayHey(): void {
-    this._greetingStrategyService.sayHey();
+    try {
+      debugger;
+      this._greetingStrategyService.sayHey(GreetingType.BOLIVIAN);
+    } catch (error) {
+      alert(error);
+    }
   }
 }

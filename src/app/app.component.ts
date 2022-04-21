@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 
-import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ContainerImgComponent } from './container-img/container-img.component';
 import { IData } from './models/data.model';
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     private readonly dataService: DataService,
     private readonly themeService: ThemeService,
     private readonly _greetingStrategyService: GreetingStrategyService,
-    @Inject('INotify') private readonly notifyService: INotify
+    private readonly notifyService: INotify
     ) {
   }
 

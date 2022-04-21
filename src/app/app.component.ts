@@ -1,13 +1,14 @@
 import { Observable } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 
 import { ContainerImgComponent } from './container-img/container-img.component';
 import { IData } from './models/data.model';
 import { DataService } from './services/data.service';
 import { GreetingStrategyService } from './services/greeting-strategy/greeting-strategy.service';
 import { GreetingType } from './services/greeting-strategy/greeting-type';
+import { INotify } from './services/notify/notify';
 import { ThemeService } from './services/theme.service';
 
 @Component({
@@ -26,7 +27,8 @@ export class AppComponent implements OnInit {
   constructor(
     private readonly dataService: DataService,
     private readonly themeService: ThemeService,
-    private readonly _greetingStrategyService: GreetingStrategyService
+    private readonly _greetingStrategyService: GreetingStrategyService,
+    @Inject('INotify') private readonly notifyService: INotify
     ) {
   }
 
@@ -69,5 +71,9 @@ export class AppComponent implements OnInit {
     } catch (error) {
       alert(error);
     }
+  }
+
+  notify(): void {
+    this.notifyService.success();
   }
 }

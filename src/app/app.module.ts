@@ -8,6 +8,8 @@ import { ContainerItemComponent } from './container-item/container-item.componen
 import { ContainerComponent } from './container/container.component';
 import { TokenService } from './interceptors/token.service';
 import { GREETING_PROVIDER } from './services/greeting-strategy/greeting-provider';
+import { INotify } from './services/notify/notify';
+import { NotifyAlertService } from './services/notify/notify-alert.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { GREETING_PROVIDER } from './services/greeting-strategy/greeting-provide
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenService, multi: true},
-    ...GREETING_PROVIDER
+    ...GREETING_PROVIDER,
+    {provide: INotify, useClass: NotifyAlertService}
   ],
   bootstrap: [AppComponent]
 })

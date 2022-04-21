@@ -1,6 +1,6 @@
 import { GreetingType } from './greeting-type';
 
-export interface IGreetingStrategy {
-  greetingType: GreetingType;
-  sayHey(): void;
+export abstract class IGreetingStrategy {
+  abstract greetingType: GreetingType;
+  abstract sayHey(): void;
 }

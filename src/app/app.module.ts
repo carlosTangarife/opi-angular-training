@@ -10,13 +10,21 @@ import { TokenService } from './interceptors/token.service';
 import { GREETING_PROVIDER } from './services/greeting-strategy/greeting-provider';
 import { INotify } from './services/notify/notify';
 import { NotifyAlertService } from './services/notify/notify-alert.service';
+import { AdDirective } from './shared/directives/ad.directive';
+import { HeroProfileComponent } from './hero-profile/hero-profile.component';
+import { AdComponent } from './ad/ad.component';
+import { InputComponent } from './input/input.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContainerComponent,
     ContainerItemComponent,
-    ContainerImgComponent
+    ContainerImgComponent,
+    AdDirective,
+    HeroProfileComponent,
+    AdComponent,
+    InputComponent,
   ],
   imports: [
     BrowserModule,

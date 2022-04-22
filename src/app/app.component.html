@@ -1,8 +1,9 @@
-<main>
+<!-- <main>
   <h1 class="visually-hidden">Features examples</h1>
 
   <button (click)="sayHey()">Saludar</button>
   <button (click)="notify()">Notificar</button>
+
 
   <ng-container *ngIf="data$ | async as data">
     <app-container>
@@ -42,4 +43,8 @@
     {{data3$ | async | json}}
   </pre>
 
+</main> -->
+
+<main>
+  <app-ad [ads]="ads"></app-ad>
 </main>

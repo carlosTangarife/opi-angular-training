@@ -4,7 +4,9 @@ import { delay, map } from 'rxjs/operators';
 import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ContainerImgComponent } from './container-img/container-img.component';
+import { AdItem } from './models/ad-item';
 import { IData } from './models/data.model';
+import { AdService } from './services/ad.service';
 import { DataService } from './services/data.service';
 import { GreetingStrategyService } from './services/greeting-strategy/greeting-strategy.service';
 import { GreetingType } from './services/greeting-strategy/greeting-type';
@@ -24,15 +26,20 @@ export class AppComponent implements OnInit {
   @ViewChild("containerImgComponentRef")
   containerImgComponentRef!: ContainerImgComponent;
 
+  ads!: Array<AdItem>;
+
   constructor(
     private readonly dataService: DataService,
     private readonly themeService: ThemeService,
     private readonly _greetingStrategyService: GreetingStrategyService,
-    private readonly notifyService: INotify
+    private readonly notifyService: INotify,
+    private readonly adService: AdService
     ) {
   }
 
   ngOnInit(): void {
+    this.ads = this.adService.getAds();
+    debugger;
 
     //https://www.youtube.com/watch?v=fYd3sBD2-W8
     //https://www.jasoft.org/Blog/post/como-cambiar-los-valores-de-variables-css-desde-codigo-javascript
